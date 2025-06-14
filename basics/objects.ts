@@ -41,5 +41,31 @@ const getAdmin = (admin: Admin): string => {
 
 }
 
+// ReadOnly 
+
+type cardNumber = string
+type cardExpiry = string 
+type cardDetail = {
+   readonly _id : string,
+   cardNumber: cardNumber,
+   cardExpiry: cardExpiry 
+}
+
+type newCardDetail = {
+    cardHolderName: string,
+    bankName?: string
+}
+type newCardDetails = cardDetail & newCardDetail 
+
+const cardUser: newCardDetails = {
+    _id: "some_id",
+    cardNumber: "num",
+    cardExpiry: "12-2-23",
+    cardHolderName: "Mr. Someone",
+    // bankName : "bank of baroda"
+    // optional bank name 
+}
+
+
 const newAdmin = getAdmin({username:"dhanjit", adminId: 121 , password: "hiiii"})
 console.log(newAdmin)
